@@ -79,7 +79,7 @@ If you encounter issues or have questions, please check the section in the [GitH
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Inspiration and Credits
 
