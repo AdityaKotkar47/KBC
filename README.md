@@ -3,7 +3,7 @@ A text-based quiz game inspired by "Kaun Banega Crorepati" in Python
 
 # Kaun Banega Crorepati - Python Game 
 
-**Welcome to the thrilling world of Kaun Banega Crorepati!** Test your knowledge, master challenging questions, and conquer the ladder of rewards in this interactive Python REPL game inspired by the popular Indian television show.
+**Welcome to the thrilling world of Quiz Quotient!** Test your knowledge, master challenging questions, and conquer the ladder of rewards in this interactive Python game inspired by the popular Indian television show "Kaun Banega Crorepati" (Who Wants to Be a Millionaire?).
 
 **This repository houses the complete code for the game, along with detailed instructions to guide you through setup, gameplay, and even potential contributions.**
 
@@ -20,7 +20,7 @@ A text-based quiz game inspired by "Kaun Banega Crorepati" in Python
 * [Possible Further Developments](#possible-further-developments)
 * [Contributing](#contributing)
 * [Troubleshooting](#troubleshooting)
-* [License](#license).
+* [License](#license)
 * [Inspiration and Credits](#inspiration-and-credits)
 
 ## Technical Specifications
@@ -34,7 +34,7 @@ A text-based quiz game inspired by "Kaun Banega Crorepati" in Python
 
 * **Question Pool:** 15 pre-defined questions with multiple-choice answers, stored in variables.
 * **Reward System:** Dynamic reward increase with each correct answer, featuring "safe levels" and fallback rewards for incorrect answers.
-* **User Interaction:** Text-based prompts and input validation using `while` loops and conditional statements.
+* **User Interaction:** Text-based prompts and input validation using loops and conditional statements.
 * **Output:** Rich text with reward announcements, question text, and answer options using string formatting and print statements.
 
 ## Key Features
