@@ -89,13 +89,13 @@ def is_correct_input(user_answer):
 
 def is_quitting(user_answer):
     """
-    Verifies if user wants to quit the quiz.
+    Verifies if the user wants to quit the quiz.
     """
     return user_answer == "q"
 
 def fallback_reward(current_index):
     """
-    Calculates fallback reward if the user enters an incorrect answer.
+    Calculates the fallback reward if the user enters an incorrect answer.
     """
     if current_index == 0:
         return "Rs. 0"
@@ -108,7 +108,7 @@ def fallback_reward(current_index):
 
 def final_reward(current_index, is_quit=False, is_lost=False):
     """
-    Calculates final reward if user wins, loses, or quits.
+    Calculates the final reward if the user wins, loses, or quits.
     """
     if is_quit:
         print(f"\nThat was a safe move {user_name}, so you've won { 'Rs.0' if current_index == 0 else rewards[current_index - 1]}")
@@ -140,8 +140,7 @@ while not is_rules:
         print("Try again :(")
         is_rules = False
 
-for question in questions:
-    current_index = questions.index(question)
+for current_index, question in enumerate(questions):
 
     print("\n".ljust(50, "-"))
     print(f"Reward: {rewards[current_index]}")
@@ -149,12 +148,10 @@ for question in questions:
     print(f"Fallback Reward: {fallback_reward(current_index)}")
     print(question)
 
-    loop_index = 0
-    for option in options:
+    for loop_index, option in enumerate(options):
         if loop_index == current_index:
             for opt in option:
                 print(opt)
-        loop_index += 1
 
     user_answer = is_correct_input(input("Your answer: ").lower())
 
