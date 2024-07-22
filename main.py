@@ -106,7 +106,7 @@ def fallback_reward(current_index):
     else:
         return "Rs. 3,20,000"
 
-def final_reward(current_index, is_quit=False, is_lost=False):
+def final_reward(current_index, user_name, is_quit=False, is_lost=False):
     """
     Calculates the final reward if the user wins, loses, or quits.
     """
@@ -120,55 +120,60 @@ def final_reward(current_index, is_quit=False, is_lost=False):
         print(f"\nFinal Grand Reward: {(rewards[-1]).replace('<grand reward>', '')}")
         print(f"Adbhut! 1 crore!!!!!!!\nYou have proved that you are worth your dreams!\n\nAuf Wiedersehen {user_name} :)")
 
-print()
-print(title.center(70, "_"))
-print("\nWelcome to KBC!\nIt's time to show what you got :)")
-user_name = input("Please enter your name: ")
-print(f"\nHello, {user_name}! Are you familiar with the rules?")
+def main():
 
-is_rules = False
-while not is_rules:
-    is_rules = input("Enter y/n: ")
-    if is_rules == "y":
-        input("\nAlright, press any key to start the quiz...")
-        break
-    elif is_rules == "n":
-        print(rules)
-        input("\nPress any key to start the quiz...")
-        break
-    else:
-        print("Try again :(")
-        is_rules = False
+    print()
+    print(title.center(70, "_"))
+    print("\nWelcome to KBC!\nIt's time to show what you got :)")
+    user_name = input("Please enter your name: ")
+    print(f"\nHello, {user_name}! Are you familiar with the rules?")
 
-for current_index, question in enumerate(questions):
+    is_rules = False
+    while not is_rules:
+        is_rules = input("Enter y/n: ")
+        if is_rules == "y":
+            input("\nAlright, press any key to start the quiz...")
+            break
+        elif is_rules == "n":
+            print(rules)
+            input("\nPress any key to start the quiz...")
+            break
+        else:
+            print("Try again :(")
+            is_rules = False
 
-    print("\n".ljust(50, "-"))
-    print(f"Reward: {rewards[current_index]}")
-    print(f"Current Reward: { 'Rs.0' if current_index == 0 else rewards[current_index - 1]}")
-    print(f"Fallback Reward: {fallback_reward(current_index)}")
-    print(question)
+    for current_index, question in enumerate(questions):
 
-    for loop_index, option in enumerate(options):
-        if loop_index == current_index:
-            for opt in option:
-                print(opt)
+        print("\n".ljust(50, "-"))
+        print(f"Reward: {rewards[current_index]}")
+        print(f"Current Reward: { 'Rs.0' if current_index == 0 else rewards[current_index - 1]}")
+        print(f"Fallback Reward: {fallback_reward(current_index)}")
+        print(question)
 
-    user_answer = is_correct_input(input("Your answer: ").lower())
+        for loop_index, option in enumerate(options):
+            if loop_index == current_index:
+                for opt in option:
+                    print(opt)
 
-    if is_quitting(user_answer):
-        final_reward(current_index, True)
-        break
+        user_answer = is_correct_input(input("Your answer: ").lower())
 
-    correct_answer = answers[current_index]
+        if is_quitting(user_answer):
+            final_reward(current_index, user_name, is_quit=True)
+            break
 
-    if user_answer == correct_answer and current_index == len(rewards) - 1:
-        final_reward(current_index)
-    elif user_answer == correct_answer:
-        print(f"Correct!\tHere's the next question for {rewards[current_index + 1]}")
-    else:
-        print("Oops, that was incorrect :(")
-        final_reward(current_index, False, True)
-        break
+        correct_answer = answers[current_index]
 
-else:
-    input("\nPress any key to exit ¯\_(ツ)_/¯\n")
+        if user_answer == correct_answer and current_index == len(rewards) - 1:
+            final_reward(current_index, user_name)
+        elif user_answer == correct_answer:
+            print(f"Correct!\tHere's the next question for {rewards[current_index + 1]}")
+        else:
+            print("Oops, that was incorrect :(")
+            final_reward(current_index, user_name, is_quit=False, is_lost=True)
+            break
+
+    input("\nPress any key to exit ¯\\_(ツ)_/¯\n")
+
+
+if __name__ == "__main__":
+    main()
