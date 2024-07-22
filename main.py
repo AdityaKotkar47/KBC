@@ -170,4 +170,5 @@ for current_index, question in enumerate(questions):
         final_reward(current_index, False, True)
         break
 
-input("\nPress any key to exit ¯\_(ツ)_/¯\n")
+else:
+    input("\nPress any key to exit ¯\_(ツ)_/¯\n")
